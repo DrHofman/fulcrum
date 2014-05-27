@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20120504152649) do
+ActiveRecord::Schema.define(version: 20140527122035) do
 
   create_table "changesets", force: true do |t|
     t.integer  "story_id"
@@ -58,7 +58,10 @@ ActiveRecord::Schema.define(version: 20120504152649) do
     t.datetime "updated_at"
     t.decimal  "position"
     t.string   "labels"
+    t.string   "epic_name"
   end
+
+  add_index "stories", ["epic_name"], name: "index_stories_on_epic_name"
 
   create_table "users", force: true do |t|
     t.string   "email",                              default: "",   null: false

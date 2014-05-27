@@ -8,6 +8,30 @@ $(function() {
   project.users.reset(<%= @project.users.to_json.html_safe %>);
   project.current_user = new Fulcrum.User(<%= current_user.to_json.html_safe %>);
 
+  var newDiv = document.createElement("a");
+  var newContent = document.createTextNode("Show my issues only");
+  newDiv.appendChild(newContent);
+  newDiv.href = 'showMyIssuesOnly';
+  var showMyIssuesOnly = false;
+  newDiv.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    $(newDiv).toggleClass('pressed');
+
+    $('div.story').each(function(index, story) {
+      var res = story.classList.contains('user-id-<%= current_user.id.to_json.html_safe %>');
+      if (!showMyIssuesOnly && !res) {
+        story.style.opacity = 0.2;
+      } else {
+        story.style.opacity = 1;
+      }
+    })
+
+    showMyIssuesOnly = !showMyIssuesOnly;
+  }, false);
+
+  $('#column-toggles').append(newDiv);
+
   var doneColumn = new Fulcrum.ColumnView({
     id: 'done', name: '<%= t('.done') %>', el: $('td.done_column'), sortable: false
   }).render();

@@ -17,6 +17,7 @@ gem 'configuration'
 gem 'rails-observers', '~> 0.1.2'
 # gem 'protected_attributes'
 gem 'jquery-ui-rails'
+gem 'thin'
 
 group :production do
   gem 'pg'

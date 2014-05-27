@@ -41,7 +41,7 @@ en:
   n weeks:
     one: '1 week'
     other: '%{count} weeks'
-  
+
   keycuts:
     keyboard_shortcuts: Keyboard shortcuts
     help: Help (this)
@@ -55,7 +55,7 @@ en:
     toggle_my_work: Toggle my work
     toggle_labels_searches: Toggle labels &amp; searches
     toggle_current: Toggle current
-  
+
   activerecord:
     models:
       user:
@@ -83,6 +83,7 @@ en:
         description:          'Description'
         estimate:             'Estimate'
         story_type:           'Story type'
+        epic_name:            'Epic Name'
         state:                'State'
         accepted_at:          'Accepted at'
         position:             'Position'

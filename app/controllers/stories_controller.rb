@@ -146,6 +146,6 @@ class StoriesController < ApplicationController
   end
 
   def allowed_params
-    params.require(:story).permit(:title, :description, :estimate, :story_type, :state, :requested_by_id, :owned_by_id, :position, :labels)
+    params.require(:story).permit(:title, :description, :estimate, :story_type, :epic_name, :state, :requested_by_id, :owned_by_id, :position, :labels)
   end
 end

@@ -302,6 +302,14 @@ Fulcrum.StoryView = Fulcrum.FormView.extend({
 
       this.$el.append(
         this.makeFormControl({
+          name: "epic_name",
+          label: true,
+          control: this.select("epic_name", ["none", "frontend", "backend", "store", "cms", "character-tool", "content"])
+        })
+      );
+
+      this.$el.append(
+        this.makeFormControl({
           name: "state",
           label: true,
           control: this.select("state", ["unscheduled", "unstarted", "started", "finished", "delivered", "accepted", "rejected"])
@@ -379,6 +387,8 @@ Fulcrum.StoryView = Fulcrum.FormView.extend({
     if (this.model.estimable() && !this.model.estimated()) {
       className += ' unestimated';
     }
+
+    className += ' user-id-' + this.model.owned_by().id;
     this.className = this.el.className = className;
     return this;
   },

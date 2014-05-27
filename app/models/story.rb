@@ -2,7 +2,7 @@ class Story < ActiveRecord::Base
 
   JSON_ATTRIBUTES = [
     "title", "accepted_at", "created_at", "updated_at", "description",
-    "project_id", "story_type", "owned_by_id", "requested_by_id", "estimate",
+    "project_id", "story_type", "epic_name", "owned_by_id", "requested_by_id", "estimate",
     "state", "position", "id", "labels"
   ]
   JSON_METHODS = [
@@ -70,6 +70,11 @@ class Story < ActiveRecord::Base
     'feature', 'chore', 'bug', 'release'
   ]
   validates :story_type, :inclusion => STORY_TYPES
+
+  EPIC_NAMES = [
+    'none', 'frontend', 'backend', 'store', 'cms', 'character-tool', 'content'
+  ]
+  validates :epic_name, :inclusion => EPIC_NAMES
 
   validates :estimate, :estimate => true, :allow_nil => true
 
